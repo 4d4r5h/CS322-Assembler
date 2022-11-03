@@ -261,7 +261,6 @@ int advance()
         {
             while (argumentrun() == 1)
             {
-
             }
         }
     }
@@ -315,7 +314,7 @@ int main(int argc, char *argv[])
     }
 
     initialise();
-    
+
     int i = 0;
     for (auto x : objectFile)
     {
