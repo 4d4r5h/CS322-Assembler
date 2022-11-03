@@ -1,0 +1,11 @@
+ERRORS:
+Duplicate label found at line 4
+Label not found at line 5
+Invalid operand format at line 6
+Operand not found at line 7
+Extra operand found at line 8
+More operands than expected at line 9
+Invalid label format at line 10
+Invalid mnemonic found at line 11
+Invalid mnemonic found at line 12
+WARNINGS:

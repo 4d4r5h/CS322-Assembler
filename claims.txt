@@ -1,0 +1,144 @@
+Title : claims.txt
+Name : Adarsh Kumar
+Roll Number : 2001CS02
+Declaration of authorship: I hereby certify that the information I am claiming is entirely my own original work except, where otherwise indicated.
+
+This file contains all the claims that I have made regarding my submission.
+
+Files:
+==========
+# General Part : 
+
+*All the files I submitted, assembler.cpp, emulator.cpp and claims.txt, have my name and roll number at the start.
+
+The evidence for Assembler including the output files from the 4 + 1 test examples has also been uploaded. 
+They are test1.asm (3 output files), test2.asm (1 output file), test3.asm (3 output files), test4.asm (3 output files) and 1 additional. All the test files have been tested and work properly. 
+
+As for the evidence of emulator, I have uploaded trace files (from trace option) for files assembled without any error. 
+
+My source file compiles without error and creates an executable on using the following command (g++ assembler.cpp -o a.exe)
+
+=============================
+Program format and structure:
+=============================
+
+1. The assembler:
+
+I have used consistent and sensible formatting with sensible program structure.
+
+I have used sensible variable, function and type name with explanatory comments in the source code file (assembler.cpp)
+
+I have used a single process for both passes.
+
+I have successfully diagnosed label errors like duplicate, missing, invalid format.
+I have successfully diagnosed instruction errors like no such instruction, invalid operand, unexpected operand.
+
+I have successfully created advanced listing file for every test file.
+Format for Listing File :  ProgramCounter => MachineCode => Instruction 
+(More details can be seen in testx.l (x is from 1 to 4))
+
+My source code assembles all the provided test programs identifying appropriate errors, and if there are no errors it produces corressponding object 
+file and listing file. (Output for a valid input assembly program (.asm) will include : .log, .l and .o files) 
+
+.log file contains => errors and warnings
+.l file contains => listing file
+.o file contains => object file contains machine code according to specification mentioned 
+
+I have also implemented SET instruction. It is demonstrated through test3 program.
+
+2. The emulator:
+
+It loads object file and has the following options:
+
+		Check Format: ./a.exe filename.o
+		Emulator Input [options]
+		-t      trace current instruction only
+		-all	trace all instructions at once
+		-dump 	see memory
+		-exit	exit
+
+It also detects Stack Overflow, Segmentation Fault and Infinite Loop.
+
+=============================
+Testing:
+=============================
+
+1. The assembler:
+
+I have tested 5 examples shown as below. Error only occurred in the file test2.asm and the program immediately stopped on the second
+pass. The others ran successfully without any error and produced three output files - listing file, log file and machine readable object 
+file. 
+
+1)
+#Input: ./a.exe test1.asm
+#Output: 
+a. test1.l
+b. test1.log (without any error messages)
+c. test1.o
+
+2)
+#Input: ./a.exe test2.asm
+#Output: 
+a. test2.log (with error messages shown as below)
+
+ERRORS:
+Duplicate label found at line 4
+Label not found at line 5
+Invalid operand format at line 6
+Operand not found at line 7
+Extra operand found at line 8
+More operands than expected at line 9
+Invalid label format at line 10
+Invalid mnemonic found at line 11
+Invalid mnemonic found at line 12
+
+3)
+#Input: ./a.exe test3.asm
+#Output: 
+a. test3.l
+b. test3.log (without any error messages)
+c. test3.o
+
+4)
+#Input: ./a.exe test4.asm
+#Output: 
+a. test4.l
+b. test4.log (without any error messages)
+c. test4.o
+
+5)
+#Input: ./a.exe BubbleSort.asm
+#Output: 
+a. BubbleSort.l
+b. BubbleSort.log (without any error messages)
+c. BubbleSort.o
+
+# The emulator:
+
+I have tested 5 examples (including BubbleSort.o). From the given files, test1.o needs to be aborted as it has an infinite loop.
+The others were tested without any errors. I have the following trace files: (test1.txt (incomplete as it was aborted),
+test2.txt, test3.txt, test4.txt and BubbleSort.txt) 
+
+1)
+#Input: emu test1.o
+Emulator Input: -all
+#Output: Aborted (infinite loop)
+
+2)
+#Input: emu test2.o
+#Output: Error: No Object File Found
+
+3)
+#Input: emu test3.o
+Emulator Input: -all
+#Output: test3.txt
+
+4)
+#Input: emu test4.o
+Emulator Input: -all
+#Output: test4.txt
+
+5)
+#Input: emu BubbleSort.o
+Emulator Input: -all
+#Output: BubbleSort.txt
